@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MyMvcApp</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/bulmaComplements.css" />
+</head>
+<body>
+    <div id="wrapper">
+        <header class="box is-flex is-justify-content-space-between level is-absolute">
+            <div class="navbar-brand">
+                <!-- Insert Logo -->
+                <a class="navbar-item" href="/">
+                    <h1 class="title link">Uppgift 2</h1>
+                </a>
+            </div>
+            <nav class="navbar is-hidden-touch">
+                    <a class="navbar-item" href="/">
+                        Home sweet home
+                    </a>
+                    <a class="navbar-item" href="/counter">
+                        Counter
+                    </a>
+                    <a class="navbar-item" href="/fetchdata">
+                        Fetch Data
+                    </a>
+            </nav>
+            <nav class="navbar is-hidden-desktop" role="navigation" aria-label="main navigation">
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarDropdown">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+
+                <div id="navbarDropdown" class="navbar-menu mt-5 box">
+                    <div class="navbar-start">
+                        <a class="navbar-item" href="/">
+                            Home sweet home
+                        </a>
+                        <a class="navbar-item" href="/counter">
+                            Counter
+                        </a>
+                        <a class="navbar-item" href="/fetchdata">
+                            Fetch Data
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="content mt-4">
+            @RenderBody()
+        </div>
+    </div>
+    <footer class="footer text-center mt-4">
+        <div class="container">
+            <span>&copy; 2024 - MyMvcApp</span>
+        </div>
+    </footer>
+
+    <script src="~/js/site.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const burgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+            if (burgers.length > 0) {
+                burgers.forEach(el => {
+                    el.addEventListener('click', () => {
+                        const target = el.dataset.target;
+                        const targetElement = document.getElementById(target);
+
+                        el.classList.toggle('is-active');
+                        targetElement.classList.toggle('is-active');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
