@@ -4,11 +4,11 @@ using Moment2MVC.Models;
 
 namespace Moment2MVC.Controllers
 {
-    public class HomeController : Controller
+    public class Controller : Microsoft.AspNetCore.Mvc.Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<Controller> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public Controller(ILogger<Controller> logger)
         {
             _logger = logger;
         }
