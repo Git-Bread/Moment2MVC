@@ -5,30 +5,24 @@
     position: relative;
 }
 
-/* Style the dropdown menu to overlay without expanding the header */
+/* makes dropdown not extend parent */
 #navbarDropdown.navbar-menu {
     position: absolute;
-    top: 100%; /* Positions the dropdown right below the navbar */
+    top: 100%;
     left: -200px;
     right: 0;
-    background-color: #fff; /* Background color of the dropdown */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for depth */
-    display: none; /* Hidden by default */
-    z-index: 1000; /* Ensures it appears above other elements */
-    /* Optional: Add transition for smoothness */
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    opacity: 0;
+    display: none;
+    z-index: 10;
     visibility: hidden;
 }
 
 /* Display the dropdown when 'is-active' class is present */
 #navbarDropdown.navbar-menu.is-active {
     display: block;
-    opacity: 1;
     visibility: visible;
 }
 
-/* Optional: Adjust padding and spacing */
+/* some extra spacing */
 .navbar-menu .navbar-start .navbar-item {
     padding: 0.75rem 1.5rem;
 }
