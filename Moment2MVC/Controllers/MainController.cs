@@ -27,6 +27,11 @@ namespace Moment2MVC.Controllers
             return View();
         }
 
+        public IActionResult NumbersPage()
+        {
+            return View();
+        }
+
         public IActionResult CatView()
         {
             var model = new CatListModel

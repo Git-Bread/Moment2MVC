@@ -1,0 +1,96 @@
+﻿@model Moment2MVC.Models.MultiplicationViewModel
+
+@{
+    ViewBag.Title = "Numbers Page";
+}
+
+<h1 class="title">Calculation Forms</h1>
+
+<!-- Result Window -->
+<div class="box">
+    <h2 class="subtitle">Result</h2>
+    <div class="notification is-info">
+        @if (ViewBag.Result != null)
+        {
+            <p>@ViewBag.Result</p>
+        }
+        else if (ViewData["Result"] != null)
+        {
+            <p>@ViewData["Result"]</p>
+        }
+        else if (Model?.Result != null)
+        {
+            <p>The result of multiplication is: @Model.Result</p>
+        }
+        else
+        {
+            <p>No result yet.</p>
+        }
+    </div>
+</div>
+
+<!-- Addition Form -->
+<div class="box">
+    <h2 class="subtitle">Addition</h2>
+    <form method="post" asp-action="Add">
+        <div class="field">
+            <label class="label">Number 1</label>
+            <div class="control">
+                <input class="input" type="number" name="addNumber1" required>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Number 2</label>
+            <div class="control">
+                <input class="input" type="number" name="addNumber2" required>
+            </div>
+        </div>
+        <div class="control">
+            <button class="button is-primary" type="submit">Add</button>
+        </div>
+    </form>
+</div>
+
+<!-- Subtraction Form -->
+<div class="box">
+    <h2 class="subtitle">Subtraction</h2>
+    <form method="post" asp-action="Subtract">
+        <div class="field">
+            <label class="label">Number 1</label>
+            <div class="control">
+                <input class="input" type="number" name="subtractNumber1" required>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Number 2</label>
+            <div class="control">
+                <input class="input" type="number" name="subtractNumber2" required>
+            </div>
+        </div>
+        <div class="control">
+            <button class="button is-primary" type="submit">Subtract</button>
+        </div>
+    </form>
+</div>
+
+<!-- Multiplication Form -->
+<div class="box">
+    <h2 class="subtitle">Multiplication</h2>
+    <form method="post" asp-action="Multiply">
+        <div class="field">
+            <label class="label">Number 1</label>
+            <div class="control">
+                <input class="input" asp-for="Number1" name="multiplyNumber1" required>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Number 2</label>
+            <div class="control">
+                <input class="input" asp-for="Number2" name="multiplyNumber2" required>
+            </div>
+        </div>
+        <div class="control">
+            <button class="button is-primary" type="submit">Multiply</button>
+        </div>
+    </form>
+</div>
