@@ -3,9 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MyMvcApp</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/bulmaComplements.css" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js"></script>
 </head>
 <body>
     <div id="wrapper">
@@ -13,19 +15,19 @@
             <div class="navbar-brand">
                 <!-- Insert Logo -->
                 <a class="navbar-item" href="/">
-                    <h1 class="title link">Uppgift 2</h1>
+                    <h1 class="title link">Bread's Cute Petsite</h1>
                 </a>
             </div>
             <nav class="navbar is-hidden-touch">
-                    <a class="navbar-item" href="/">
-                        Home sweet home
-                    </a>
-                    <a class="navbar-item" href="/counter">
-                        Counter
-                    </a>
-                    <a class="navbar-item" href="/fetchdata">
-                        Fetch Data
-                    </a>
+                <a class="navbar-item" asp-controller="Main" asp-action="Index">
+                    Home sweet home
+                </a>
+                <a class="navbar-item" asp-controller="Main" asp-action="CatView">
+                    Cat View
+                </a>
+                <a class="navbar-item" asp-controller="Main" asp-action="FetchData">
+                    Fetch Data
+                </a>
             </nav>
             <nav class="navbar is-hidden-desktop" role="navigation" aria-label="main navigation">
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarDropdown">
@@ -36,23 +38,23 @@
 
                 <div id="navbarDropdown" class="navbar-menu mt-5 box">
                     <div class="navbar-start">
-                        <a class="navbar-item" href="/">
+                        <a class="navbar-item" asp-controller="Main" asp-action="Index">
                             Home sweet home
                         </a>
-                        <a class="navbar-item" href="/counter">
-                            Counter
+                        <a class="navbar-item" asp-controller="Main" asp-action="CatView">
+                            Cat View
                         </a>
-                        <a class="navbar-item" href="/fetchdata">
-                            Fetch Data
+                        <a class="navbar-item" asp-controller="Main" asp-action="NumbersPage">
+                            NumbersPage
                         </a>
                     </div>
                 </div>
             </nav>
         </header>
 
-        <div class="content mt-4">
+        <main class="content container mt-4 box p-5">
             @RenderBody()
-        </div>
+        </main>
     </div>
     <footer class="footer text-center mt-4">
         <div class="container">
@@ -60,7 +62,6 @@
         </div>
     </footer>
 
-    <script src="~/js/site.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const burgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
@@ -78,5 +79,6 @@
             }
         });
     </script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

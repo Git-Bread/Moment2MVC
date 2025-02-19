@@ -1,0 +1,58 @@
+﻿@model Moment2MVC.Models.CatListModel
+
+<h2 class="title">Cat List</h2>
+<table class="table is-striped is-hoverable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Breed</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cat in Model.CatList)
+        {
+            <tr>
+                <td>@cat.Name</td>
+                <td>@cat.Breed</td>
+                <td>@cat.Age</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <form asp-action="Create" method="post">
+        <div class="field">
+            <label class="label" asp-for="NewCat.Name"></label>
+            <div class="control">
+                <input class="input" asp-for="NewCat.Name" />
+            </div>
+            <span asp-validation-for="NewCat.Name" class="has-text-danger"></span>
+        </div>
+        <div class="field">
+            <label class="label" asp-for="NewCat.Breed"></label>
+            <div class="control">
+                <input class="input" asp-for="NewCat.Breed" />
+            </div>
+            <span asp-validation-for="NewCat.Breed" class="has-text-danger"></span>
+        </div>
+        <div class="field">
+            <label class="label" asp-for="NewCat.Age"></label>
+            <div class="control">
+                <input class="input" asp-for="NewCat.Age" />
+            </div>
+            <span asp-validation-for="NewCat.Age" class="has-text-danger"></span>
+        </div>
+        <div class="field">
+            <div class="control">
+                <button type="submit" class="button is-primary">Add Cat</button>
+            </div>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
