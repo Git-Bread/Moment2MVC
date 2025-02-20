@@ -6,7 +6,6 @@ namespace Moment2MVC.Controllers
 {
     public class MainController : Controller
     {
-        private readonly ILogger<MainController> _logger;
         private static List<CatModel> cats = new List<CatModel>
         {
             new CatModel { Name = "Whiskers", Breed = "Siamese", Age = 2 },
@@ -15,12 +14,6 @@ namespace Moment2MVC.Controllers
             new CatModel { Name = "Simba", Breed = "Bengal", Age = 1 },
             new CatModel { Name = "Luna", Breed = "Sphynx", Age = 5 }
         };
-        
-
-        public MainController(ILogger<MainController> logger)
-        {
-            _logger = logger;
-        }
 
         public IActionResult Index()
         {
@@ -62,6 +55,38 @@ namespace Moment2MVC.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [HttpPost]
+        public IActionResult SelectOperation(string operation)
+        {
+            ViewBag.SelectedOperation = $"You selected: {operation}";
+            return View("Index");
+        }
+
+        [HttpPost]
+        public IActionResult ChooseNumber(int chosenNumber)
+        {
+            if (chosenNumber == 0)
+            {
+                ViewBag.ChosenNumber = "Choose a number";
+            }
+            else
+            {
+                ViewBag.ChosenNumber = $"You chose number: {chosenNumber}";
+            }
+            return View("Index");
+        }
+
+        [HttpPost]
+        public IActionResult SelectOptions(bool option1, bool option2, bool option3)
+        {
+            ViewBag.SelectedOptions = $"You selected: " +
+            $"{(option1 ? "Option 1 " : "")}" +
+            $"{(option2 ? "Option 2 " : "")}" +
+            $"{(option3 ? "Option 3 " : "")}" +
+            $"{(option1 || option2 || option3 ? "" : "No Selected")}";
+            return View("Index");
         }
     }
 }

@@ -3,5 +3,92 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Hello! Welcome to Uppgift 2.1+2.2</h1>
 
+<!-- Dropdown List -->
+<div class="box">
+    <h2 class="subtitle">Select Operation</h2>
+    <form method="post" asp-action="SelectOperation">
+        <div class="field">
+            <label class="label">Operation</label>
+            <div class="control">
+                <div class="select">
+                    <select name="operation">
+                        <option value="add">Addition</option>
+                        <option value="subtract">Subtraction</option>
+                        <option value="multiply">Multiplication</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="control">
+            <button class="button is-primary" type="submit">Select</button>
+        </div>
+    </form>
+    @if (ViewBag.SelectedOperation != null)
+    {
+        <p>@ViewBag.SelectedOperation</p>
+    }
+</div>
+
+<!-- Radio Buttons -->
+<div class="box">
+    <h2 class="subtitle">Choose a Number</h2>
+    <form method="post" asp-action="ChooseNumber">
+        <div class="field">
+            <label class="label">Number</label>
+            <div class="control">
+                <label class="radio">
+                    <input type="radio" name="chosenNumber" value="1">
+                    1
+                </label>
+                <label class="radio">
+                    <input type="radio" name="chosenNumber" value="2">
+                    2
+                </label>
+                <label class="radio">
+                    <input type="radio" name="chosenNumber" value="3">
+                    3
+                </label>
+            </div>
+        </div>
+        <div class="control">
+            <button class="button is-primary" type="submit">Choose</button>
+        </div>
+    </form>
+    @if (ViewBag.ChosenNumber != null)
+    {
+        <p>@ViewBag.ChosenNumber</p>
+    }
+</div>
+
+<!-- Checkboxes -->
+<div class="box">
+    <h2 class="subtitle">Select Options</h2>
+    <form method="post" asp-action="SelectOptions">
+        <div class="field">
+            <label class="label">Options</label>
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" name="option1" value="true">
+                    Option 1
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" name="option2" value="true">
+                    Option 2
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" name="option3" value="true">
+                    Option 3
+                </label>
+            </div>
+        </div>
+        <div class="control">
+            <button class="button is-primary" type="submit">Select</button>
+        </div>
+    </form>
+    @if (ViewBag.SelectedOptions != null)
+    {
+        <p>@ViewBag.SelectedOptions</p>
+    }
+</div>
