@@ -10,7 +10,7 @@ namespace Moment2MVC.Models
 
         [Required(ErrorMessage = "Breed is required")]
         [StringLength(50, ErrorMessage = "Breed cannot be longer than 50 characters")]
-        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Breed must only contain letters")]
+        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Breed must only contain letters and spaces")]
         public string Breed { get; set; } = "";
 
         [Required(ErrorMessage = "Age is required")]

@@ -1,4 +1,4 @@
-﻿@model Moment2MVC.Models.MultiplicationViewModel
+﻿@model MultiplicationViewModel
 
 @{
     ViewBag.Title = "Numbers Page";
@@ -82,13 +82,15 @@
         <div class="field">
             <label class="label">Number 1</label>
             <div class="control">
-                <input class="input" asp-for="Number1" name="multiplyNumber1" required>
+                <input class="input" asp-for="Number1" required>
+                <span asp-validation-for="Number1" class="help is-danger"></span>
             </div>
         </div>
         <div class="field">
             <label class="label">Number 2</label>
             <div class="control">
-                <input class="input" asp-for="Number2" name="multiplyNumber2" required>
+                <input class="input" asp-for="Number2" required>
+                <span asp-validation-for="Number2" class="help is-danger"></span>
             </div>
         </div>
         <div class="control">
